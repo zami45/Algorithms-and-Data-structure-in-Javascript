@@ -8,9 +8,11 @@ var g = new GraphUnDirected(5)
 g.addVertice('A')
 g.addVertice('B')
 g.addVertice('C')
+g.addVertice('D')
 
 g.addEdge('A','B',5)
 g.addEdge('B','C',10)
+g.addEdge('B','D',15)
 g.print()
 console.log(g.breadthFirstTravarsal('A'))
 </script>
