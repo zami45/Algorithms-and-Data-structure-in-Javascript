@@ -1,24 +1,24 @@
 class MinHeapNode {
-    constructor(vertices,key){
-        this.vertices = vertices;
+    constructor(vertice,key){
+        this.vertice = vertice;
         this.key = key
     }
 }
 
 class MinHeap{
-    constructor (keyList,verticesList,heapSize){
+    constructor (keyList,verticeList,heapSize){
         this.heapStorage = [null];  // initialize heap array with null value 
-        this.verticesList = verticesList;
+        this.verticeList = verticeList;
         this.keyList = keyList
         this.heapSize = heapSize;
-        this.makeHeapNode(this.keyList,this.verticesList,this.heapSize);
+        this.makeHeapNode(this.keyList,this.verticeList,this.heapSize);
         this.buildMinHeap(this.heapSize);
     }
 
     leftChildIndex(parent_index){
         return parent_index*2
     }
-
+ 
     rightChildIndex(parent_index){
         return parent_index*2+1
     }
@@ -68,18 +68,22 @@ class MinHeap{
         return min
     }
 
-    makeHeapNode(keyList,verticesList,heapSize){
+    makeHeapNode(keyList,verticeList,heapSize){
         for(let i=1;i<=heapSize;i++){
-           let minHeapNode = new MinHeapNode(verticesList[i],keyList[i]);
+           let minHeapNode = new MinHeapNode(verticeList[i],keyList[i]);
            this.heapStorage.push(minHeapNode)
 
         }
     }
+
+    nodeExistInHeap(vertice){
+        return this.heapStorage.filter(e=>e.vertice == vertice)
+    }
 }
 
 var keyList = [null,2,4,8,1,0]
-var verticesList = [null,'a','b','c','d','e']
-var minHeap = new MinHeap(keyList,verticesList,5)
+var verticeList = [null,'a','b','c','d','e']
+var minHeap = new MinHeap(keyList,verticeList,5)
 console.log(minHeap.printHeap())
 
 var min = minHeap.extractMinimumNodeFromHeap();
