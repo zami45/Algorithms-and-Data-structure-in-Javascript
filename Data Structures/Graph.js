@@ -15,7 +15,7 @@ class GraphUnDirected{
     }
 
     print(){
-        console.log(this.adjList)
+        return this.adjList
     }
 
     breadthFirstTravarsal(startingNode){
