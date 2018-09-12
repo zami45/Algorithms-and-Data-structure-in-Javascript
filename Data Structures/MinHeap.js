@@ -6,8 +6,13 @@ class MinHeapNode {
 }
 
 class MinHeap{
-    constructor (heapArr){
-        this.heapStorage = heapArr
+    constructor (keyList,vertexList,heapSize){
+        this.heapStorage = [null];  // initialize heap array with null value 
+        this.vertexList = vertexList;
+        this.keyList = keyList
+        this.heapSize = heapSize;
+        this.makeHeapNode(this.keyList,this.vertexList,this.heapSize);
+        this.buildMinHeap(this.heapSize);
     }
 
     leftChildIndex(parent_index){
@@ -23,9 +28,10 @@ class MinHeap{
     }
 
     minHeapify(heap,heapSize,parent_index){
-        let left,right,smallest;
-        left = this.leftChildIndex(parent_index)
-        right = this.rightChildIndex(parent_index)
+        let left,right;
+        let smallest; // smallest : keep track of the smallest node among parent,it's left child and right child in terms of key 
+        left = this.leftChildIndex(parent_index) // get left child index of parent
+        right = this.rightChildIndex(parent_index) // get right child index of parent
 
         if(left <= heapSize && heap[left].key < heap[parent_index].key){
             smallest = left
@@ -50,21 +56,34 @@ class MinHeap{
     }
 
     printHeap(){
-        console.log(this.heapStorage)
+        return this.heapStorage
+    }
+
+    extractMinimumNodeFromHeap(){
+        let min = this.heapStorage[1]
+        this.heapStorage.splice(1,1)
+        this.heapSize -= 1
+        this.heapStorage.splice(1,0,this.heapStorage.pop())    
+        this.minHeapify(this.heapStorage,this.heapSize,1)
+        return min
+    }
+
+    makeHeapNode(keyList,vertexList,heapSize){
+        for(let i=1;i<=heapSize;i++){
+           let minHeapNode = new MinHeapNode(vertexList[i],keyList[i]);
+           this.heapStorage.push(minHeapNode)
+
+        }
     }
 }
 
-let heapArr = [null]
-var key = [null,2,4,8,1,0]
-var vertex = [null,'a','b','c','d','e']
-for(i=1;i<=5;i++){
-    let minHeapNode = new MinHeapNode(vertex[i],key[i]);
-    heapArr.push(minHeapNode)
+var keyList = [null,2,4,8,1,0]
+var vertexList = [null,'a','b','c','d','e']
+var minHeap = new MinHeap(keyList,vertexList,5)
+console.log(minHeap.printHeap())
 
-}
+var min = minHeap.extractMinimumNodeFromHeap();
 
-var minHeap = new MinHeap(heapArr)
+console.log(minHeap.printHeap())
 
-minHeap.buildMinHeap(heapArr.length-1)
-
-minHeap.printHeap()
+console.log(min)
