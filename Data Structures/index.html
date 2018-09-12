@@ -1,0 +1,18 @@
+<html>
+<body>
+<script src='SinglyLinkedList.js' type='text/javascript'></script>
+<script src='Queue.js' type='text/javascript'></script>
+<script src='Graph.js' type='text/javascript'></script>
+<script>
+var g = new GraphUnDirected(5)
+g.addVertice('A')
+g.addVertice('B')
+g.addVertice('C')
+
+g.addEdge('A','B',5)
+g.addEdge('B','C',10)
+g.print()
+console.log(g.breadthFirstTravarsal('A'))
+</script>
+</body>
+</html>

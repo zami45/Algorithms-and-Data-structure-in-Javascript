@@ -6,8 +6,8 @@ class SinglyLinkedList{
         this.insertNodeAtTheBottom(value)
     }
 
-    insertNodeAtTheBottom(value){
-        const newNode = {value : value,next : null}
+    insertNodeAtTheBottom(value, dest=null,weight = 0){
+        const newNode = {parentVertice : value, destinationVertice : dest, weight : weight,  next : null}
         if(this.head == null){
             this.head = newNode    
             this.length++    
@@ -28,14 +28,22 @@ class SinglyLinkedList{
         let current = this.head
         let str = ''
         while(current != null){
-            str += current.value+'->'
+            str += current.parentVertice+'->'
             current = current.next
         }
 
         console.log(str.substr(0,str.length-2))
     }
+
+    getListElements(list){
+        let current = list.head
+        let arr = []
+        while(current != null){
+            arr.push(current)
+            current = current.next
+        }
+        return arr
+    }
 }
 
-let sll = new SinglyLinkedList(1)
-sll.insertNodeAtTheBottom(2)
-sll.insertNodeAtTheBottom(3)
+

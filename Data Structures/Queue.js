@@ -23,7 +23,7 @@ class Queue{
      * 
      */
     deQueue(){
-        this.storage.shift()
+        return this.storage.shift()
     }
 
     /**
@@ -35,6 +35,10 @@ class Queue{
             str += i
         }
         console.log(str)
+    }
+
+    isEmpty(){
+        return !this.storage.length
     }
 }
 
