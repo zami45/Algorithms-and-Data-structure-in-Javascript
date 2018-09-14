@@ -77,11 +77,30 @@ class MinHeap{
     }
 
     nodeExistInHeap(vertice){
-        return this.heapStorage.filter(e=>e.vertice == vertice)
+        return this.heapStorage.findIndex(e=>(e!=null) && (e.vertice == vertice)) != -1 ? true : false
+    }
+
+    getKeyValue(vertice){
+        let index = this.heapStorage.findIndex(e=>(e!=null) && (e.vertice == vertice))
+        let key = this.heapStorage[index].key
+        return key
+    }
+
+    updateHeapStorageItemKey(vertice,key){
+        let index = this.heapStorage.findIndex(e=>(e!=null) && (e.vertice == vertice))
+        this.heapStorage[index].key = key
+        this.buildMinHeap(this.heapSize)
+    }
+    isEmpty(){
+        if(this.heapStorage.length == 0 || this.heapStorage.length == 1){
+            return true;
+        }
+        return false;
     }
 }
 
-var keyList = [null,2,4,8,1,0]
+
+/* var keyList = [null,2,4,8,1,0]
 var verticeList = [null,'a','b','c','d','e']
 var minHeap = new MinHeap(keyList,verticeList,5)
 console.log(minHeap.printHeap())
@@ -90,4 +109,4 @@ var min = minHeap.extractMinimumNodeFromHeap();
 
 console.log(minHeap.printHeap())
 
-console.log(min)
+console.log(min) */

@@ -3,18 +3,25 @@
 <script src='SinglyLinkedList.js' type='text/javascript'></script>
 <script src='Queue.js' type='text/javascript'></script>
 <script src='Graph.js' type='text/javascript'></script>
+<script src='MinHeap.js' type='text/javascript'></script>
+<script src='PrimMST_Graph.js' type='text/javascript'></script>
 <script>
 var g = new GraphUnDirected(5)
 g.addVertice('A')
 g.addVertice('B')
 g.addVertice('C')
 g.addVertice('D')
+g.addVertice('E')
 
 g.addEdge('A','B',5)
 g.addEdge('B','C',10)
 g.addEdge('B','D',15)
-g.print()
-console.log(g.breadthFirstTravarsal('A'))
+g.addEdge('C','D',6)
+g.addEdge('B','E',4)
+
+let prim = new PrimMST(g)
+prim.constructPrimMST()
+console.log(prim.print())
 </script>
 </body>
 </html>
