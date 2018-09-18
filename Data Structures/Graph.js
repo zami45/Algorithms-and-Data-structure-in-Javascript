@@ -18,7 +18,7 @@ class GraphUnDirected{
         return this.adjList;
     }
 
-    breadthFirstTravarsal(startingNode){
+    breadthfirstTravarsal(startingNode){
 
         let q = new Queue()
         let logStorage = []
