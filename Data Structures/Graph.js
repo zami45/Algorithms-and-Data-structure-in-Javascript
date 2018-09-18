@@ -1,6 +1,6 @@
 class GraphUnDirected{
     constructor(noOfVertices){
-        this.noOfVertices = noOfVertices;
+        this.noOfVertices = noOfVertices
         this.adjList = new Map()
     }
 
