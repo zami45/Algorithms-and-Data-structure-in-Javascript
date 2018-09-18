@@ -49,5 +49,9 @@ class GraphUnDirected{
 
     }
 
+    newFeature(){
+        //my new feature
+    }
+
 
 }
