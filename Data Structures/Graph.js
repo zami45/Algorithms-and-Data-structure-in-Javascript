@@ -1,7 +1,7 @@
 class GraphUnDirected{
     constructor(noOfVertices){
-        this.noOfVertices = noOfVertices
-        this.adjList = new Map()
+        this.noOfVertices = noOfVertices;
+        this.adjList = new Map();
     }
 
     addVertice(vertice){
