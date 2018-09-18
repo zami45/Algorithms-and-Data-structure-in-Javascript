@@ -44,7 +44,7 @@ class GraphUnDirected{
 
         }
 
-        return logStorage
+        return logStorage;
 
 
     }
