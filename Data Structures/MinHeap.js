@@ -100,7 +100,13 @@ class MinHeap{
 
     /*testMinHeapFeature(){
 
-    }*/
+    }
+    
+    testMinHeapBuddy(){
+        
+    }
+    
+    */
 }
 
 
