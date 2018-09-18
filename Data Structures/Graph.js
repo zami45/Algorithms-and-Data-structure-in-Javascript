@@ -65,5 +65,6 @@ class GraphUnDirected{
 
     buddygraph(){
         //buddy graph
+        // buddy graph 2
     }
 }
