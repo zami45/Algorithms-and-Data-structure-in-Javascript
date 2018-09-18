@@ -62,4 +62,8 @@ class GraphUnDirected{
     anotherMaster(){
         //another master feature
     }
+
+    buddygraph(){
+        //buddy graph
+    }
 }
