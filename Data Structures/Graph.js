@@ -58,4 +58,8 @@ class GraphUnDirected{
     newMasterFeature(){
         // master feature
     }
+
+    gupdateFunc(){
+        //mygupdate
+    }
 }
